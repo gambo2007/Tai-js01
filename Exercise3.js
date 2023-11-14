@@ -27,7 +27,6 @@ function findSafePaths(garden) {
     return safePaths;
 }
 
-// Example usage:
 const garden = [
     [0, 1, 1],
     [0, 1, 1],
@@ -39,4 +38,3 @@ const garden = [
 const safePaths = findSafePaths(garden);
 
 console.log(safePaths);
-// Output: [ [0, 0, 0, 0, 0], [0, 0, 0, 0, 1] ]
