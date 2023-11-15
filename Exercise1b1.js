@@ -1,4 +1,4 @@
-function fomart(number) {
+function fomartMoneyString(number) {
     let string = number.toString();
     let split = string.split(".");
     let wholePart = split[0];
@@ -15,4 +15,4 @@ function fomart(number) {
         return output + "." + split[1];
     return output;
 }
-console.log(fomart(1000.03));
+console.log(fomartMoneyString(1000.03));
