@@ -1,29 +1,45 @@
-function findSafePaths(garden) {
+function findAllSafeWays(garden) {
     const numRows = garden.length;
     const numCols = garden[0].length;
-    const safePaths = [];
+    const safeWays = [];
 
     for (let row = 0; row < numRows; row++) {
         const path = [];
-        let isPathSafe = true;
+        let isSafe = true;
 
         for (let col = 0; col < numCols; col++) {
             if (garden[row][col] === 1) {
-                isPathSafe = false;
-                break; 
+                isSafe = false;
+                break;
             }
-            let a =path.push(0);
-            console.log(a);
+            path.push(0);
         }
 
-        if (isPathSafe) {
-            c = path[path.length - 1] = 1;
-            console.log(c);
-            let b = safePaths.push(path);
-            console.log(b);
+        if (isSafe) {
+            path[numCols - 1] = 0;
+            safeWays.push([...path]);
+
+            path[numCols - 1] = 1;
+            safeWays.push([...path]);
         }
     }
-    return safePaths;
+
+    return safeWays;
+}
+
+function changeMatrix(matrix) {
+    const numRows = matrix.length;
+    const numCols = matrix[0].length;
+
+    const transposedMatrix = new Array(numCols).fill(0).map(() => new Array(numRows).fill(0));
+
+    for (let row = 0; row < numRows; row++) {
+        for (let col = 0; col < numCols; col++) {
+            transposedMatrix[col][row] = matrix[row][col];
+        }
+    }
+
+    return transposedMatrix;
 }
 
 const garden = [
@@ -34,6 +50,7 @@ const garden = [
     [0, 0, 1]
 ];
 
-const safePaths = findSafePaths(garden);
+const transposedMatrix = changeMatrix(garden);
 
-console.log(safePaths);
+const safeWays = findAllSafeWays(transposedMatrix);
+console.log(safeWays);
