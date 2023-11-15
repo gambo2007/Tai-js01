@@ -1,4 +1,4 @@
-function formatmoneyToShort(money){
+function formatmoneyInShorten(money){
     let denom = ["","K","M","B"];
     let count =0;
 
@@ -10,6 +10,6 @@ function formatmoneyToShort(money){
     return `${format}${denom[count]}`;
 }
 
-console.log(formatmoneyToShort(1000));
-console.log(formatmoneyToShort(1123400000));
-console.log(formatmoneyToShort(1342222));
+console.log(formatmoneyInShorten(1000));
+console.log(formatmoneyInShorten(1123400000));
+console.log(formatmoneyInShorten(1342222));

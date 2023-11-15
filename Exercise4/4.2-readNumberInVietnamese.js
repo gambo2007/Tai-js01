@@ -9,7 +9,6 @@ function readNumber(number) {
     let Str = number.toString().padStart(6, '0');
 
     for (let i = 0; i < 6; i++) {
-        console.log(Str[i]);
         const digit = parseInt(Str[i]);
 
         if (i === 0 && digit !== 0) {
@@ -32,7 +31,7 @@ function readNumber(number) {
         }
     }
 
-    return result.trim();
+    return result
 }
 
 const number = 726503;

@@ -1,4 +1,4 @@
-function randomArray(arr){
+function getRandomEArray(arr){
     if (arr.length === 0){
         return undefined;
     }
@@ -6,4 +6,4 @@ function randomArray(arr){
     return arr[rndArray];
 }
 
-console.log(randomArray([2,3,4,5,6,7]));
+console.log(getRandomEArray([2,3,4,5,6,7]));

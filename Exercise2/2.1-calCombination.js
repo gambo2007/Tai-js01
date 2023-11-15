@@ -3,13 +3,13 @@ function factorial(n) {
     return n * factorial(n - 1);
 }
 
-function combination(n, r) {
-    if (r < 0 || r > n) {
+function combination(n, k) {
+    if (k < 0 || k > n) {
         return 0;
     }
 
     const Numerator = factorial(n);
-    const Denominator = factorial(r) * factorial(n - r);
+    const Denominator = factorial(k) * factorial(n - k);
     const result = Numerator / Denominator;
     return result;
 }
