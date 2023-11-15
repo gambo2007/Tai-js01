@@ -10,14 +10,13 @@ function findSafePaths(garden) {
         for (let col = 0; col < numCols; col++) {
             if (garden[row][col] === 1) {
                 isPathSafe = false;
-                break; // Stop if a bomb is encountered
+                break; 
             }
-            let a =path.push(0); // Mark each cell as 0 in the path
+            let a =path.push(0);
             console.log(a);
         }
 
         if (isPathSafe) {
-            // Mark the last cell in the path as 1 (reached the right side safely)
             c = path[path.length - 1] = 1;
             console.log(c);
             let b = safePaths.push(path);
@@ -27,7 +26,6 @@ function findSafePaths(garden) {
     return safePaths;
 }
 
-// Example usage:
 const garden = [
     [0, 1, 1],
     [0, 1, 1],
@@ -39,4 +37,3 @@ const garden = [
 const safePaths = findSafePaths(garden);
 
 console.log(safePaths);
-// Output: [ [0, 0, 0, 0, 0], [0, 0, 0, 0, 1] ]

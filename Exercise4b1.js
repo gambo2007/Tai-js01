@@ -1,9 +1,9 @@
-function integerToRoman(num) {
+function IntToRomanNumber(num) {
     if (num <= 0 || num >= 1000) {
         return undefined;
     }
 
-    const romanNumerals = [
+    const ListOfRomanNumber = [
         ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
         ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"],
         ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
@@ -13,15 +13,12 @@ function integerToRoman(num) {
     const tens = Math.floor((num % 100) / 10);
     const hundreds = Math.floor(num / 100);
 
-    const romanNumeral =
-        romanNumerals[2][hundreds] +
-        romanNumerals[1][tens] +
-        romanNumerals[0][units];
+    const romanNumber =
+        ListOfRomanNumber[2][hundreds] +
+        ListOfRomanNumber[1][tens] +
+        ListOfRomanNumber[0][units];
 
-    return romanNumeral;
+    return romanNumber;
 }
 
-const num = 25;
-const romanNumeral = integerToRoman(num);
-
-console.log(romanNumeral); 
+console.log(IntToRomanNumber(5)); 
