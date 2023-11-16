@@ -31,10 +31,10 @@ function drawClock(){
     context.clearRect(0,0,cwidth,cheight);
 
 
-    context.shadowBlur = 25; // Adjust the blur level for a more prominent shadow
-    context.shadowColor = 'rgb(163, 118, 167)'; // Shadow color (semi-transparent black)
-    context.shadowOffsetX = 3; // Adjust the horizontal offset
-    context.shadowOffsetY = 3; // Adjust the vertical offset
+    context.shadowBlur = 25;
+    context.shadowColor = 'rgb(163, 118, 167)'; 
+    context.shadowOffsetX = 3;
+    context.shadowOffsetY = 3;
 
     context.beginPath();
     context.arc(centerX, centerY, 140, 0, 2 * Math.PI);
