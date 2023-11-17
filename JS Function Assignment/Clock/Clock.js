@@ -30,18 +30,16 @@ function drawHand(x, y, angle, length, width, color) {
 function drawClock(){
     context.clearRect(0,0,cwidth,cheight);
 
+    glowIntensity = Math.sin(Date.now() * 0.001) * 40;
 
-    context.shadowBlur = 25;
-    context.shadowColor = 'rgb(163, 118, 167)'; 
-    context.shadowOffsetX = 3;
-    context.shadowOffsetY = 3;
+    context.fillStyle = '#191725';  
+    context.shadowColor = '#a376a7'; 
+    context.shadowBlur = glowIntensity; 
 
     context.beginPath();
     context.arc(centerX, centerY, 140, 0, 2 * Math.PI);
-    context.stroke();
+    context.fill();
 
-
-    
     const date = new Date();
     const hours = date.getHours() % 12;
     const minutes = date.getMinutes();
