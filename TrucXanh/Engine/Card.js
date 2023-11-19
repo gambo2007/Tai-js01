@@ -17,7 +17,7 @@ export class Card extends Node {
         this.image.src = imagePath;
 
         this.flipCardHandler = flipCardHandler;
-        this.element.addEventListener('click', this.flipCardHandler.bind(this));
+        this.element.addEventListener('click', () => this.flipCardHandler(cardNumber));
         console.log('Card initialized.');
     }
 
