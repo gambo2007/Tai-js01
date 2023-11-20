@@ -9,18 +9,13 @@ export class Message extends Node {
         this.element.style.color = color;
         this.element.style.textAlign = 'center';
         this.element.style.textShadow = '0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff';
-        console.log('Mess initialized.');
+
+        this.element.style.position = 'absolute';
+        this.element.style.left = '50%';
+        this.element.style.top = '50%';
+        this.element.style.transform = 'translate(50%, 620%)';
+        this.element.style.width = 'max-content'; 
+        this.element.style.height = 'max-content';  
     }
 
-    center() {
-        const rect = this.element.getBoundingClientRect();
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-
-        const leftOffset = (windowWidth - rect.width) / 2;
-        const topOffset = (windowHeight - rect.height) / 2;
-
-        this.element.style.left = `${leftOffset}px`;
-        this.element.style.top = `${topOffset}px`;
-    }
 }

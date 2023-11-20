@@ -46,8 +46,14 @@ export class Game {
         const cardHeight = 100;
 
         const gap = 10;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const centerLeft = (windowWidth - cols * (cardWidth + gap)) / 2;
+        const centerTop = (windowHeight - rows * (cardHeight + gap)) / 2;
         this.gameBoard.element.style.position = 'absolute';
-        this.gameBoard.element.style.transform = 'translate(210%, 440%)';
+        this.gameBoard.element.style.left = `${centerLeft}px`;
+        this.gameBoard.element.style.top = `${centerTop}px`;
+
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {
                 const index = row * cols + col;
@@ -117,7 +123,6 @@ export class Game {
                 this.gameBoard.element.style.display = 'none';
                 const winMessage = new Message('Congratulations! You won the game!', 'green');
                 document.body.appendChild(winMessage.element); 
-                winMessage.center();
                 setTimeout(() => {
                     winMessage.element.style.display = 'none';
                     this.gameBoard.element.style.display = 'grid';
@@ -140,7 +145,6 @@ export class Game {
                 this.gameBoard.element.style.display = 'none';
                 const losingMessage = new Message('Game Over! You ran out of coins.', 'black');
                 this.body.appendChild(losingMessage.element);
-                losingMessage.center();
 
                 setTimeout(() => {
                     losingMessage.element.style.display = 'none';
