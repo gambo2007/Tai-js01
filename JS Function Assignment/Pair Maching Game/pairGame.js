@@ -1,15 +1,19 @@
 const body = document.querySelector('body');
-body.style.display = 'flex';
-body.style.alignItems = 'center';
-body.style.justifyContent = 'center';
-body.style.height = '100vh';
+body.style.position = 'absolute';
+document.documentElement.style.height = '100%';
+document.documentElement.style.margin = '0';
+body.style.height = '100%';
 body.style.margin = '0';
+body.style.top = '50%';
+body.style.left = '50%';
+body.style.transform = 'translate(-50%, -50%)';
 
 const imagePath = 'images/bg.jpeg';
 body.style.backgroundImage = `url(${imagePath})`;
 body.style.backgroundSize = 'cover';
 body.style.backgroundRepeat = 'no-repeat';
 body.style.backgroundPosition = 'center center';
+
 
 const backgroundMusic = new Audio('music/music.mp3');
 backgroundMusic.loop = true;
@@ -23,6 +27,10 @@ document.addEventListener('click', () => {
 body.appendChild(backgroundMusic);
 
 const gameBoard = document.createElement('div');
+gameBoard.style.position = 'absolute';
+gameBoard.style.top = '50%';
+gameBoard.style.left = '50%';
+gameBoard.style.transform = 'translate(-50%, -50%)';
 gameBoard.style.display = 'grid';
 gameBoard.style.gridTemplateColumns = 'repeat(5, 1fr)';
 gameBoard.style.placeItems = 'center';
@@ -33,7 +41,7 @@ document.body.appendChild(gameBoard);
 let coins = 10000;
 const coin = document.createElement('div');
 coin.style.position = 'absolute';
-coin.style.top = '200px';
+coin.style.bottom = '430px';
 coin.style.fontSize = '24px';
 coin.style.color = 'white';
 gameBoard.appendChild(coin);
