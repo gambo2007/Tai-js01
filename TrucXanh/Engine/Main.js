@@ -5,13 +5,14 @@ body.style.position = 'absolute';
 document.documentElement.style.height = '100%';
 document.documentElement.style.margin = '0';
 
-const imagePath = 'images/bg.jpg';
+const imagePath = 'images/bg.jpeg';
 body.style.backgroundImage = `url(${imagePath})`;
 body.style.backgroundSize = 'cover';
 body.style.backgroundRepeat = 'no-repeat';
 body.style.backgroundPosition = 'center center';
 
 // const backgroundMusic = new Audio('music/music.mp3');
+// backgroundMusic.loop = true;
 // backgroundMusic.volume = 1;
 // backgroundMusic.addEventListener('canplaythrough', () => {
 //     backgroundMusic.play();
