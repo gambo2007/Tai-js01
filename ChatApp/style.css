@@ -9,7 +9,7 @@
 	background-size: cover;
 	position: relative;
 	background-image: url("https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg");
-	
+
 }
 
 * {
@@ -20,10 +20,12 @@
 }
 
 body {
-	font-family: "Times New Roman", Times, serif;
-	font-size: 14px;
-	
-	margin: 10px;
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
 }
 
 ul {
@@ -42,23 +44,26 @@ a {
 	border: 0;
 	font-size: 15px;
 }
-.btn:hover{
-	background-color:black;
+
+.btn:hover {
+	background-color: black;
 }
-title{
-	font-size:large;
-	
+
+title {
+	font-size: large;
+
 }
+
 .chat-container {
 	max-width: 1350px;
-	background: #fff;
-	margin: 50px auto;
+	background:transparent;
 	overflow: hidden;
 }
 
 .chat-header {
-	background: var(--dark-color-a);
-	color:rgb(53, 37, 3);
+	background: var(--dark-color-b);
+	opacity: 0.9;
+	color: rgb(53, 37, 3);
 	border-top-left-radius: 3px;
 	border-top-right-radius: 2px;
 	padding: 12px;
@@ -74,7 +79,8 @@ title{
 
 .chat-sidebar {
 	background: var(--dark-color-b);
-	color:rgb(63, 31, 5);
+	color: rgb(63, 31, 5);
+	opacity: 0.9;
 	padding: 20px 20px 60px;
 	overflow-y: scroll;
 }
@@ -82,6 +88,7 @@ title{
 .chat-sidebar h2 {
 	font-size: 20px;
 	background: rgba(0, 1.2, 1, 0.1);
+	opacity: 0.9;
 	padding: 5px;
 	margin-bottom: 18px;
 }
@@ -96,7 +103,7 @@ title{
 
 .chat-messages {
 	padding: 30px;
-	max-height: 400px;
+	max-height: 460px;
 	overflow-y: scroll;
 }
 
@@ -112,7 +119,7 @@ title{
 	font-size: 15px;
 	font-weight: bold;
 	color: var(--dark-color-b);
-	opacity: 0.7;
+	opacity: 0.9;
 	margin-bottom: 7px;
 }
 
@@ -122,7 +129,14 @@ title{
 
 .chat-form-container {
 	padding: 20px 30px;
-	background-color: var(--dark-color-a);
+	background-color: var(--dark-color-b);
+	opacity: 0.9;
+}
+.btn2{
+	height: 42px;margin-top: 7px;
+	background-color: transparent;
+	margin-left: 5px;
+	width: 50px;
 }
 
 .chat-form-container form {
@@ -136,25 +150,69 @@ title{
 	flex: 1;
 }
 
+.icon-list {
+	display: none;
+	transition: all 0.3s ease;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon-list.show {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.Mix {
+	display: flex;
+}
+
+.icon-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin: 5px;
+	transition: transform 0.3s ease;
+}
+
+.icon-btn:hover {
+	transform: scale(1.2);
+}
+
+.show-icons-btn {
+	background-color: transparent;
+	color: black;
+	padding: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.show-icons-btn:hover {
+	background-color: black;
+	color: white;
+}
+
 .join-container {
-	max-width: 500px;
-	margin: 10px auto;
-	color:rgb(8, 0, 0);
-	margin-top: 180px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	width: 300px;
+	text-align: center;
 }
 
 .join-header {
-	text-align: center;
-	padding: 20px;
 	background: var(--dark-color-a);
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	color: #fff;
+	padding: 20px;
+}
+
+.join-header i {
+	margin-right: 8px;
 }
 
 .join-main {
-	padding: 20px 40px;
+	padding: 20px;
 	background: var(--dark-color-b);
-	display: flex;
 }
 
 .join-main p {
@@ -162,45 +220,43 @@ title{
 }
 
 .join-main .form-control {
-	margin-bottom: 12px;
+	margin-bottom: 20px;
 }
 
-.join-main label {
+label {
 	display: block;
-	margin-bottom: 6px;
+	text-align: left;
+	margin-bottom: 8px;
+	color: #333;
 }
 
-.join-main input[type='text'] {
-	font-size: 14px;
-	padding: 4px;
-	height: 30px;
+input,
+select {
 	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-top: 8px;
 }
 
-.join-main select {
-	font-size: 14px;
-	padding: 4px;
-	height: 30px;
-	width: 100%;
-}
-.join-login{
+.join-login {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
-.join-main .btn {
-	margin-top: 15px;
-	width: 40%;
-	position: sticky;
-	align-self: flex-end;
-	border-radius: 4px;
-	height: 35px;
-	border: 1px solid #777;
+
+.btn {
 	background-color: bisque;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
-.join-main .btn:hover{
-	background-color :rgb(80, 42, 8);
+.btn:hover {
+	background-color: rgb(80, 42, 8);
 	color: rgb(231, 203, 203);
 }
 

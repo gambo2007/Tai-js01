@@ -34,7 +34,6 @@ mongoose.connect(mongoDB, {
   io.on('connection', socket => {
     socket.on('joinRoom', async ({ username, room }) => {
       const user = userJoin(socket.id, username, room);
-
       socket.join(user.room);
       try {
         let message = await Mess.find();
@@ -43,12 +42,10 @@ mongoose.connect(mongoDB, {
             socket.emit("loadMessage", storedMessage(mess.user, mess.content, mess.time));
           }
         })
-
         console.log(message);
       } catch (err) {
         console.log(err);
       }
-
       socket.emit('message', formatMessage(botName, `Welcome to ${user.room}!`));
       socket.broadcast
         .to(user.room)
@@ -61,10 +58,8 @@ mongoose.connect(mongoDB, {
         users: getRoomUsers(user.room)
       });
     });
-
     socket.on('chatMessage', async msg => {
       const user = getCurrentUser(socket.id);
-
       const mess = new Mess({
         user: user.username,
         time: moment().format('h:mm a'),
@@ -77,10 +72,8 @@ mongoose.connect(mongoDB, {
       } catch (e) {
         console.log(e)
       }
-
       io.to(user.room).emit('message', formatMessage(user.username, msg));
     });
-
     socket.on('disconnect', () => {
       const user = userLeave(socket.id);
       if (user) {
@@ -95,8 +88,6 @@ mongoose.connect(mongoDB, {
       }
     });
   });
-
-
 });
 
 const port = process.env.PORT || 8080;

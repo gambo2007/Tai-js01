@@ -35,6 +35,17 @@ chatForm.addEventListener('submit', (e) => {
   e.target.elements.msg.value = '';
   e.target.elements.msg.focus();
 });
+
+function toggleIconList() {
+  var iconListContainer = document.getElementById('iconListContainer');
+  iconListContainer.classList.toggle('show');
+}
+
+function addIcon(iconClass) {
+  var currentMessage = document.getElementById('msg').value;
+  document.getElementById('msg').value = currentMessage + ' ' + iconClass;
+}
+
 function outputMessage(message) {
   const div = document.createElement('div');
   div.classList.add('message');
@@ -49,9 +60,11 @@ function outputMessage(message) {
   div.appendChild(para);
   document.querySelector('.chat-messages').appendChild(div);
 }
+
 function outputRoomName(room) {
   roomName.innerText = room;
 }
+
 function outputUsers(users) {
   userList.innerHTML = '';
   users.forEach((user) => {
@@ -60,6 +73,7 @@ function outputUsers(users) {
     userList.appendChild(li);
   });
 }
+
 document.getElementById('quit-btn').addEventListener('click', () => {
   const quitRoom = confirm('Are u sure to quit this room?');
   if (quitRoom) {
