@@ -55,13 +55,14 @@ title {
 }
 
 .chat-container {
-	max-width: 1350px;
-	background:transparent;
+	width: 100%;
+	height: 100%;
+	background: white;
 	overflow: hidden;
 }
 
 .chat-header {
-	background: var(--dark-color-b);
+	background: var(--dark-color-a);
 	opacity: 0.9;
 	color: rgb(53, 37, 3);
 	border-top-left-radius: 3px;
@@ -74,11 +75,13 @@ title {
 
 .chat-main {
 	display: grid;
+	height: 85vh;
 	grid-template-columns: 1fr 4fr;
 }
 
 .chat-sidebar {
 	background: var(--dark-color-b);
+	width: 70%;
 	color: rgb(63, 31, 5);
 	opacity: 0.9;
 	padding: 20px 20px 60px;
@@ -103,7 +106,6 @@ title {
 
 .chat-messages {
 	padding: 30px;
-	max-height: 460px;
 	overflow-y: scroll;
 }
 
@@ -128,12 +130,18 @@ title {
 }
 
 .chat-form-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding: 20px 30px;
-	background-color: var(--dark-color-b);
+	background-color: var(--dark-color-a);
 	opacity: 0.9;
+	flex-grow: 1;
 }
-.btn2{
-	height: 42px;margin-top: 7px;
+
+.btn2 {
+	height: 42px;
+	margin-top: 7px;
 	background-color: transparent;
 	margin-left: 5px;
 	width: 50px;
@@ -141,54 +149,49 @@ title {
 
 .chat-form-container form {
 	display: flex;
+	flex-grow: 1;
 }
 
 .chat-form-container input[type='text'] {
-	font-size: 16px;
-	padding: 5px;
-	height: 40px;
 	flex: 1;
+	font-size: 16px;
+	padding: 8px;
+	height: 42px;
+	box-sizing: border-box;
 }
 
-.icon-list {
+.emoji-container {
+	position: absolute;
+	bottom: 70px;
+	right: 12px;
 	display: none;
-	transition: all 0.3s ease;
-	justify-content: center;
-	align-items: center;
-}
-
-.icon-list.show {
-	display: flex;
 	flex-wrap: wrap;
+	gap: 5px;
+	overflow-y: auto;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	grid-template-columns: repeat(6, 1fr);
 }
 
-.Mix {
-	display: flex;
-}
-
-.icon-btn {
-	background: none;
-	border: none;
+.emoji {
+	font-size: 24px;
 	cursor: pointer;
-	margin: 5px;
-	transition: transform 0.3s ease;
 }
 
-.icon-btn:hover {
-	transform: scale(1.2);
+.emoji:hover {
+	border: 1px solid #ccc;
 }
 
-.show-icons-btn {
+#show-emoji-btn {
+	height: 42px;
+	margin-top: 7px;
 	background-color: transparent;
-	color: black;
-	padding: 10px;
-	cursor: pointer;
-	transition: background-color 0.3s, color 0.3s;
+	margin-left: 5px;
+	width: 50px;
 }
 
-.show-icons-btn:hover {
-	background-color: black;
-	color: white;
+.emoji-container.show {
+	display: grid;
 }
 
 .join-container {

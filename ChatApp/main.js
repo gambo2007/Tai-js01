@@ -1,3 +1,4 @@
+
 const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
 const roomName = document.getElementById('room-name');
@@ -36,15 +37,49 @@ chatForm.addEventListener('submit', (e) => {
   e.target.elements.msg.focus();
 });
 
-function toggleIconList() {
-  var iconListContainer = document.getElementById('iconListContainer');
-  iconListContainer.classList.toggle('show');
+function insertEmoji(emoji) {
+  const msgInput = document.getElementById('msg');
+  msgInput.value += emoji;
 }
 
-function addIcon(iconClass) {
-  var currentMessage = document.getElementById('msg').value;
-  document.getElementById('msg').value = currentMessage + ' ' + iconClass;
+const showEmojiBtn = document.getElementById('show-emoji-btn');
+const emojiContainer = document.getElementById('emoji-container');
+const emojis = ["😊", "❤️", "😂", "😍", "😎", "👍", "👏", "🎉", "🌟", "🌈", "🚀", "💡", "💖", "🎈", "🎁", "🍕", "🍦", "🍍", "🎸", "🎮", "🚲", "🏆", "🎤", "⚽", "🎯", "📚", "📷", "💻", "🎧", "🌟"];
+function insertEmoji(emoji) {
+  const msgInput = document.getElementById('msg');
+  const cursorPos = msgInput.selectionStart;
+  const textBeforeCursor = msgInput.value.substring(0, cursorPos);
+  const textAfterCursor = msgInput.value.substring(cursorPos);
+  msgInput.value = textBeforeCursor + emoji + textAfterCursor;
+  msgInput.focus();
+  msgInput.setSelectionRange(cursorPos + emoji.length, cursorPos + emoji.length);
 }
+
+emojis.forEach((emoji) => {
+  const emojiElement = document.createElement('span');
+  emojiElement.classList.add('emoji');
+  emojiElement.innerText = emoji;
+  emojiContainer.appendChild(emojiElement);
+});
+emojiContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('emoji')) {
+    insertEmoji(e.target.innerText);
+  }
+});
+showEmojiBtn.addEventListener('click', function (e) {
+  e.stopPropagation();
+  emojiContainer.classList.toggle('show');
+});
+document.addEventListener('click', function (e) {
+  if (!emojiContainer.contains(e.target) && e.target !== showEmojiBtn) {
+    emojiContainer.classList.remove('show');
+  }
+});
+emojiContainer.addEventListener('click', function (e) {
+  e.stopPropagation();
+});
+
+
 
 function outputMessage(message) {
   const div = document.createElement('div');

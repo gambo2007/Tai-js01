@@ -9,16 +9,16 @@
   <link rel="stylesheet" href="style.css" />
   <title id="title">Nobi Messager</title>
 </head>
+
 <body>
   <div class="chat-container">
     <header class="chat-header">
       <h1><i class="fab fa-facebook-messenger "></i> Message</h1>
+      <h2 id="room-name"></h2>
       <a id="quit-btn" class="btn">Quit</a>
     </header>
     <main class="chat-main">
       <div class="chat-sidebar">
-        <h3><i class="fas fa-comments"></i> Room </h3>
-        <h2 id="room-name"></h2>
         <h3><i class="fas fa-user-friends"></i> Users</h3>
         <ul id="users"></ul>
       </div>
@@ -29,39 +29,17 @@
         <input id="msg" name="msg" type="text" placeholder="Aa" required autocomplete="off" />
         <button class="btn2"><i class='fas fa-paper-plane fa-2x'></i></button>
       </form>
-      <div class="Mix">
-        <button class="show-icons-btn" onclick="toggleIconList()">Icons</button>
-        <div id="iconListContainer" class="icon-list">
-          <div id="iconList">
-            <button class="icon-btn" onclick="addIcon('fas fa-smile')"><i class="fas fa-smile"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-heart')"><i class="fas fa-heart"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-thumbs-up')"><i class="fas fa-thumbs-up"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-star')"><i class="fas fa-star"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-check')"><i class="fas fa-check"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-bolt')"><i class="fas fa-bolt"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-moon')"><i class="fas fa-moon"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-tree')"><i class="fas fa-tree"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-flag')"><i class="fas fa-flag"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-coffee')"><i class="fas fa-coffee"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-car')"><i class="fas fa-car"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-cloud')"><i class="fas fa-cloud"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-gift')"><i class="fas fa-gift"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-music')"><i class="fas fa-music"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-paw')"><i class="fas fa-paw"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-umbrella')"><i class="fas fa-umbrella"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-birthday-cake')"><i class="fas fa-birthday-cake"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-book')"><i class="fas fa-book"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-plane')"><i class="fas fa-plane"></i></button>
-            <button class="icon-btn" onclick="addIcon('fas fa-sun')"><i class="fas fa-sun"></i></button>
-          </div>
-        </div>
+      <button id="show-emoji-btn">Emoji</button>
+      <div id="emoji-container" class="emoji-container">
       </div>
     </div>
   </div>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
     integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>
